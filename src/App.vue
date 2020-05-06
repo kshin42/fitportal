@@ -1,32 +1,58 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app app>
+    <v-card class="overflow-hidden">
+      <v-app-bar
+        app
+        color="primary"
+        dark
+        shrink-on-scroll
+        prominent
+        src="./assets/homepagebanner.jpg"
+        fade-img-on-scroll
+      >
+        <template v-slot:img="{ props }">
+          <v-img
+            v-bind="props"
+            gradient="to top right, rgba(132, 188, 218,.9), rgba(33, 41, 92,.7)"
+          ></v-img>
+        </template>
+
+        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
+        <v-toolbar-title>FitPortal</v-toolbar-title>
+        <v-spacer></v-spacer>
+
+        <v-btn
+          href="https://github.com/vuetifyjs/vuetify/releases/latest"
+          target="_blank"
+          text
+        >
+          <span class="mr-2">Sign In</span>
+          <v-icon>mdi-open-in-new</v-icon>
+        </v-btn>
+      </v-app-bar>
+
+      <v-content>
+        <HelloWorld />
+      </v-content>
+    </v-card>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import HelloWorld from "./components/HelloWorld";
 
-#nav {
-  padding: 30px;
-}
+export default {
+  name: "App",
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  components: {
+    HelloWorld,
+  },
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  data: () => ({
+    //
+  }),
+};
+</script>
+
+<style></style>
