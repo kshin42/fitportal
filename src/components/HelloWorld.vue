@@ -5,10 +5,11 @@
     src="../assets/homepagebannergradient.png"
     height="700"
   >
-
     <h1>Challenge Yourself</h1>
     <h2 class="subheading">Create your own fitness challenge today!</h2>
-    <v-btn id="startbutton" large color="primary">Start</v-btn>
+    <v-btn id="startbutton" large color="primary" to="/createChallenge"
+      >Start</v-btn
+    >
   </v-parallax>
 </template>
 
@@ -36,5 +37,4 @@ h2 {
   margin-top: 2em;
   margin-left: 90px;
 }
-
 </style>
