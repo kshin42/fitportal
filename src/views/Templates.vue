@@ -13,30 +13,34 @@
                     </v-col>
                 </v-row>
                 <v-row align="center" justify="center">
-                    <v-col cols="auto" v-for="(template, index) in templates" v-bind:key="index">
-                        <v-card hover max-width="250">
-                          <v-img
-                              class="white--text align-end"
-                              height="130px"
-                              width="250px"
-                              src="../assets/running.jpeg"
-                          >
-                              <v-card-title>{{template.Name}}</v-card-title>
-                          </v-img>
-                            <v-card-subtitle class="pb-0">Overview
-                                <v-btn align="right" icon @click="template.show = !template.show">
-                                <v-icon align="right">{{ template.show ? 'fas fa-angle-up' : 'fas fa-angle-down' }}</v-icon>
-                            </v-btn></v-card-subtitle>
-                            <v-expand-transition>
-                                <div v-show="template.show">
-                                    <v-divider></v-divider>
-                                    <v-card-text class="text-wrap">
-                                        {{template.Description}}
-                                    </v-card-text>
-                                </div>
-                            </v-expand-transition>
-                        </v-card>
-                    </v-col>
+                    <v-container fluid class="templateList">
+                        <v-row dense>
+                            <v-col v-for="template in templates" :key="template.Name">
+                                <v-card hover max-width="250" style="margin-top: 50px">
+                                    <v-img
+                                            class="white--text align-end"
+                                            height="130px"
+                                            width="250px"
+                                            src="../assets/running.jpeg"
+                                    >
+                                        <v-card-title>{{template.Name}}</v-card-title>
+                                    </v-img>
+                                    <v-card-subtitle class="pb-0">Overview
+                                        <v-btn align="right" icon @click="template.show = !template.show">
+                                            <v-icon align="right">{{ template.show ? 'fas fa-angle-up' : 'fas fa-angle-down' }}</v-icon>
+                                        </v-btn></v-card-subtitle>
+                                    <v-expand-transition>
+                                        <div v-show="template.show">
+                                            <v-divider></v-divider>
+                                            <v-card-text class="text-wrap">
+                                                {{template.Description}}
+                                            </v-card-text>
+                                        </div>
+                                    </v-expand-transition>
+                                </v-card>
+                            </v-col>
+                        </v-row>
+                    </v-container>
                 </v-row>
             </v-container>
         </v-content>
@@ -106,3 +110,9 @@
         },
     };
 </script>
+
+<style>
+    .templateList {
+        max-width: 1200px;
+    }
+</style>
