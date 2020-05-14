@@ -18,7 +18,7 @@
                             inset
                             vertical
                     ></v-divider>
-                    <v-btn x-large>Custom Challenge</v-btn>
+                    <v-btn x-large to="customizeChallenge">Custom Challenge</v-btn>
                   </v-row>
                 </v-card-text>
                 <v-card-actions> </v-card-actions>

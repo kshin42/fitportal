@@ -15,11 +15,16 @@ Vue.use(VueRouter)
     name: 'CreateChallenge',
     component: () => import('../views/CreateChallenge.vue')
   },
-    {
-      path: '/templates',
-      name: 'Templates',
-      component: () => import('../views/Templates.vue')
-    },
+  {
+    path: '/templates',
+    name: 'Templates',
+    component: () => import('../views/Templates.vue')
+  },
+  {
+    path: '/customizeChallenge',
+    name: 'CustomizeChallenge',
+    component: () => import('../views/CustomizeChallenge.vue')
+  },
   {
     path: '/about',
     name: 'About',
