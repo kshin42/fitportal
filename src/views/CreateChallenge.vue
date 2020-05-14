@@ -4,84 +4,24 @@
     <v-content>
       <v-container class="fill-height" fluid>
         <v-row align="center" justify="center">
+          <v-icon color="tertiary" class="fitportalicon">fas fa-heartbeat</v-icon>
+        </v-row>
+        <v-divider></v-divider>
+        <v-row align="center" justify="center">
           <v-col cols="12" sm="4" md="6">
-            <v-card class="elevation-12">
-              <v-toolbar color="secondary" dark flat>
-                <v-toolbar-title>Create Your Tasks</v-toolbar-title>
-              </v-toolbar>
-              <v-card-text>
-                <v-form>
-                  <v-row>
-                    <v-col cols="8">
-                      <v-text-field
-                        clearable
-                        v-model="newTask"
-                        class="taskInput"
-                        label="Challenge Item"
-                        type="text"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="4">
-                      <v-text-field
-                        clearable
-                        v-model="newPoints"
-                        class="taskInput"
-                        label="Point Count"
-                        type="text"
-                      ></v-text-field>
-                    </v-col>
-                  </v-row>
-                  <v-row>
-                    <v-spacer></v-spacer>
-                    <v-btn color="primary" id="addTaskBtn" @click="addTask"
-                      >Add Task</v-btn
-                    >
-                  </v-row>
-                  <v-row>
+                <p class="font-weight-thin text-center qh1">Choose a Template or Create Your Own?</p>
+                <v-card-text>
+                  <v-row align="center" justify="center">
+                    <v-btn x-large to="templates">Choose a Template</v-btn>
                     <v-divider
-                      style="margin-top: 25px;margin-bottom: 35px"
+                            class="mx-4"
+                            inset
+                            vertical
                     ></v-divider>
+                    <v-btn x-large>Custom Challenge</v-btn>
                   </v-row>
-                  <div class="bill" v-for="task in tasks" :key="task.taskName">
-                    <v-row>
-                      <v-col cols="8">
-                        <v-text-field
-                          class="taskInput"
-                          :value="task.taskName"
-                          type="text"
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="2">
-                        <v-text-field
-                          class="taskInput"
-                          :value="task.pointValue"
-                          type="text"
-                        ></v-text-field>
-                      </v-col>
-                      <v-btn
-                        style="margin-top:30px;margin-left:15px"
-                        icon
-                        color="red"
-                        @click="removeTask(task.taskName)"
-                      >
-                        <v-icon>mdi-window-close</v-icon>
-                      </v-btn>
-                    </v-row>
-                  </div>
-                  <v-row>
-                    <v-spacer></v-spacer>
-                    <v-btn
-                      v-if="submitShow"
-                      color="error"
-                      id="submit"
-                      @click="submitChallenge"
-                      >Create Challenge</v-btn
-                    >
-                  </v-row>
-                </v-form>
-              </v-card-text>
-              <v-card-actions> </v-card-actions>
-            </v-card>
+                </v-card-text>
+                <v-card-actions> </v-card-actions>
           </v-col>
         </v-row>
       </v-container>
@@ -99,39 +39,13 @@ export default {
     NavBar,
   },
   data: () => ({
-    newTask: "",
-    newPoints: "",
-    tasks: [],
-    submitShow: false,
+
   }),
   methods: {
-    addTask() {
-      if (this.newTask && this.newPoints) {
-        this.tasks.push({
-          taskName: this.newTask,
-          pointValue: this.newPoints,
-        });
-        this.newTask = "";
-        this.newPoints = "";
-      }
-      this.submitShow = true;
-    },
-    removeTask(index) {
-      this.tasks.splice(index, 1);
-      if (this.tasks.length == 0) {
-        this.submitShow = false;
-      }
-    },
+
+
+
   },
 };
 </script>
 
-<style>
-.taskInput {
-  margin-left: 10px;
-  margin-right: 15px;
-}
-#addTaskBtn {
-  margin-right: 30px;
-}
-</style>
