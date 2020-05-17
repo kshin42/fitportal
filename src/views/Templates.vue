@@ -14,8 +14,8 @@
                 </v-row>
                 <v-row align="center" justify="center">
                     <v-container fluid class="templateList">
-                        <v-row dense>
-                            <v-col v-for="template in templates" :key="template.Name">
+                        <v-row>
+                            <v-col v-for="template in templates" :key="template.Name" align="center" justify="center">
                                 <v-card hover max-width="250" style="margin-top: 50px">
                                     <v-img
                                             class="white--text align-end"
